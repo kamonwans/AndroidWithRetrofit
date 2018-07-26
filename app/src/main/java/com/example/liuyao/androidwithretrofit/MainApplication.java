@@ -10,11 +10,9 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.nytimes.com/svc/books")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
     }
+
 
     @Override
     public void onTerminate() {
