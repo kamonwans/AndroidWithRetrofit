@@ -11,12 +11,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 public class GitUsersViewHolder extends RecyclerView.ViewHolder {
+    interface OnClickUserListener{
+        void onClickItem(Users user);
+    }
+
     private ImageView imgAvarta;
     private TextView tvName;
     private TextView tvType;
     private Context context;
 
-    public GitUsersViewHolder(@NonNull View itemView, Context context) {
+    public GitUsersViewHolder(@NonNull View itemView, Context context, final OnClickUserListener onClickUserListener) {
         super(itemView);
 
         imgAvarta = itemView.findViewById(R.id.imgAvarta);
@@ -24,6 +28,12 @@ public class GitUsersViewHolder extends RecyclerView.ViewHolder {
         tvType = itemView.findViewById(R.id.tvType);
         this.context = context;
 
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickUserListener.onClickItem(new Users());
+            }
+        });
     }
 
     public void setImgAvarta(String url) {

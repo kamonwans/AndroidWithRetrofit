@@ -12,18 +12,22 @@ import java.util.List;
 public class GitUsersAdapter extends RecyclerView.Adapter<GitUsersViewHolder> {
 
     private List<Users> usersList;
+    private GitUsersViewHolder.OnClickUserListener onClickUserListener;
+
+    public GitUsersAdapter(GitUsersViewHolder.OnClickUserListener onClickUserListener) {
+        this.onClickUserListener = onClickUserListener;
+    }
 
     public void setUsersList(List<Users> usersList) {
         this.usersList = usersList;
         notifyDataSetChanged();
-        ;
     }
 
     @NonNull
     @Override
     public GitUsersViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_git_user, viewGroup, false);
-        return new GitUsersViewHolder(view, viewGroup.getContext());
+        return new GitUsersViewHolder(view, viewGroup.getContext(),onClickUserListener);
     }
 
     @Override
