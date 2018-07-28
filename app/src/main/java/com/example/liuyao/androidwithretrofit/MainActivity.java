@@ -43,11 +43,5 @@ public class MainActivity extends AppCompatActivity {
 
           }
       });
-
-      if (users != null){
-          Log.d("not null","not null");
-      }else {
-          Log.d("null","null");
-      }
     }
 }
