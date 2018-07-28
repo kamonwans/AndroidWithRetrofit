@@ -11,7 +11,7 @@ class Users {
     private String blog;
     private String email;
 
-    public String getName() {
+    public String getNam
         return name;
     }
 
