@@ -43,9 +43,12 @@ public class UserDetailActivity extends AppCompatActivity {
               if (response.isSuccessful()){
                   if (response.body() !=  null){
                     users = response.body();
-                    tvName.setText(users.getName());
-                    tvCompany.setText(users.getCompany());
-                    tvBlog.setText(users.getBlog());
+                    String name = users.getName() != null ? users.getName() : "";
+                    String company = users.getCompany() != null ? users.getCompany() : "";
+                    String blog = users.getBlog() != null ? users.getBlog() : "";
+                    tvName.setText("Name : " + name);
+                    tvCompany.setText("Company : " + company);
+                    tvBlog.setText("Blog : " + blog);
                     tvBio.setText(users.getBio());
                     Glide.with(UserDetailActivity.this).load(users.getAvartaUrl()).into(imgAvatar);
                   }
