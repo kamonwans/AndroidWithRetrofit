@@ -1,11 +1,13 @@
 package com.example.liuyao.androidwithretrofit;
 
+import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
@@ -19,6 +21,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private TextView tvBlog;
     private TextView tvBio;
     private Users users;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class UserDetailActivity extends AppCompatActivity {
         tvCompany = findViewById(R.id.tvComapy);
         tvBlog = findViewById(R.id.tvBlog);
         tvBio = findViewById(R.id.tvBio);
+        mToolbar = findViewById(R.id.toolbar);
 
       String login =  getIntent().getExtras().getString("login");
 
@@ -60,5 +64,17 @@ public class UserDetailActivity extends AppCompatActivity {
 
           }
       });
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
     }
 }
