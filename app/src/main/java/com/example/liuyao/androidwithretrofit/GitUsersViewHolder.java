@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 
 public class GitUsersViewHolder extends RecyclerView.ViewHolder {
     interface OnClickUserListener{
-        void onClickItem(Users user);
+        void onClickItem(String login);
     }
 
     private ImageView imgAvarta;

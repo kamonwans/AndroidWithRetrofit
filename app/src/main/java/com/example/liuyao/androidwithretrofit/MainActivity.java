@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements GitUsersViewHolde
                     if (response.body() != null) {
                         usersList = response.body();
                         adapter.setUsersList(usersList);
-
-                        Log.d("respone", ": body : " + usersList.get(0).getLogin());
                     } else {
                         Log.d("respone", ": body is null");
                     }
@@ -64,8 +62,9 @@ public class MainActivity extends AppCompatActivity implements GitUsersViewHolde
     }
 
     @Override
-    public void onClickItem(Users user) {
+    public void onClickItem(String login) {
         Intent intent =new Intent(this,UserDetailActivity.class);
+        intent.putExtra("login",login);
         startActivity(intent);
     }
 }

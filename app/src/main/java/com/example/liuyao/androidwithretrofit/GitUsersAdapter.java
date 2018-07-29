@@ -40,7 +40,7 @@ public class GitUsersAdapter extends RecyclerView.Adapter<GitUsersViewHolder> {
         gitUsersViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickUserListener.onClickItem(user);
+                onClickUserListener.onClickItem(user.getLogin());
             }
         });
     }
