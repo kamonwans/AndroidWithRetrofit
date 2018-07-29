@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 class Users implements Parcelable{
     private String login;
+    @SerializedName("avatar_url")
     private String avartaUrl;
     private String type;
     private String name;
