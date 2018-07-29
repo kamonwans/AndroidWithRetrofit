@@ -10,7 +10,7 @@ public interface GitService {
     @GET("users")
     Call<List<Users>> getListUsers();
 
-    @GET("users/{user}")
-    Call<Users> getUserDetail(@Part("user") String login);
+    @GET("users/{login}")
+    Call<Users> getUserDetail(@Part("login") String login);
 
 }
