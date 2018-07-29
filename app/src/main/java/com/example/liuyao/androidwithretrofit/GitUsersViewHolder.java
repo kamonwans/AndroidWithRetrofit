@@ -20,20 +20,13 @@ public class GitUsersViewHolder extends RecyclerView.ViewHolder {
     private TextView tvType;
     private Context context;
 
-    public GitUsersViewHolder(@NonNull View itemView, Context context, final OnClickUserListener onClickUserListener) {
+    public GitUsersViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
 
         imgAvarta = itemView.findViewById(R.id.imgAvarta);
         tvName = itemView.findViewById(R.id.tvName);
         tvType = itemView.findViewById(R.id.tvType);
         this.context = context;
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickUserListener.onClickItem(new Users());
-            }
-        });
     }
 
     public void setImgAvarta(String url) {

@@ -27,14 +27,22 @@ public class GitUsersAdapter extends RecyclerView.Adapter<GitUsersViewHolder> {
     @Override
     public GitUsersViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_git_user, viewGroup, false);
-        return new GitUsersViewHolder(view, viewGroup.getContext(),onClickUserListener);
+        return new GitUsersViewHolder(view, viewGroup.getContext());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GitUsersViewHolder gitUsersViewHolder, int i) {
-        gitUsersViewHolder.setTvName(usersList.get(i).getLogin());
-        gitUsersViewHolder.setTvType(usersList.get(i).getType());
-        gitUsersViewHolder.setImgAvarta(usersList.get(i).getAvartaUrl());
+    public void onBindViewHolder(@NonNull GitUsersViewHolder gitUsersViewHolder, final int i) {
+        final Users user = usersList.get(i);
+        gitUsersViewHolder.setTvName(user.getLogin());
+        gitUsersViewHolder.setTvType(user.getType());
+        gitUsersViewHolder.setImgAvarta(user.getAvartaUrl());
+
+        gitUsersViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickUserListener.onClickItem(user);
+            }
+        });
     }
 
     @Override
