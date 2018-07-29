@@ -17,7 +17,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements GitUsersViewHolder.OnClickUserListener{
 
-    private GitService gitService;
     private List<Users> usersList;
     private RecyclerView recyclerView;
     private GitUsersAdapter adapter;
